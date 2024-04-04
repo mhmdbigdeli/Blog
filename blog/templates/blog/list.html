@@ -1,0 +1,18 @@
+<!--django template language-->
+<!--https://docs.djangoproject.com/en/5.0/ref/templates/language/-->
+{% extends "parent/base.html" %}
+{% block title %} Post List {% endblock %}
+{%block content%}
+<h1>Post List</h1>
+<ol style="--length: {{posts.count}}" role="list">  
+{%for post in posts %}
+<li style="--i: {{forloop.counter}}">  
+<h2>    
+    <a href="{{ post.get_absolute_url }}">{{post.title}}</a>
+    </h2>
+    <p>{{post.description | truncatewords:5 }}</p>
+    <p>{{ post.get_absolute_url}}</p>
+    </li> 
+{% endfor %}
+</ol>
+{%endblock%}

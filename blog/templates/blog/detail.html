@@ -1,0 +1,14 @@
+<!--django template language-->
+<!--https://docs.djangoproject.com/en/5.0/ref/templates/language/-->
+{% extends 'parent/base.html' %}
+{% load jformat %}
+{% block title %} Post Detail {% endblock %}
+{%block content%}
+    <h1>Post Detail</h1>
+    <h2> {{post.title}} By {{ post.author }} </h2>
+    <p>{{ post.description | linebreaks }}</p>
+    <hr>
+    <!--https://docs.djangoproject.com/en/5.0/ref/templates/builtins/#date-->
+    <p>{{post.publish|jformat:'%Y/%m/%d-%H:M%M'}}</p>
+    
+{% endblock %}
